@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>📝 Meine Kunden</h1>
+
+    <div class="stats">
+      <span id="stat_total">0 Kunden</span>
+      <span id="stat_paid">0 Bezahlt</span>
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Name des Kunden...">
+      <input type="text" id="linkInput" placeholder="Link (optional)">
+      
+      <select id="categorySelect">
+        <option value="info_link">Info & Link</option>
+        <option value="info_clarify">Info & klärt noch</option>
+        <option value="talk_again">Nochmal sprechen</option>
+        <option value="paid">Bezahlt</option>
+      </select>
+
+      <button onclick="addTask()">Hinzufügen</button>
+    </div>
+
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="🔍 Suche...">
+    </div>
+
+    <div class="dashboard">
+      <div class="column" data-category="info_link"><h3>📄 Info & Link</h3><ul></ul></div>
+      <div class="column" data-category="info_clarify"><h3>❓ Klärt noch</h3><ul></ul></div>
+      <div class="column" data-category="talk_again"><h3>💬 Nochmal sprechen</h3><ul></ul></div>
+      <div class="column" data-category="paid"><h3>💰 Bezahlt</h3><ul></ul></div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Kunde bearbeiten</h2>
+      <input id="modalText">
+      <input id="modalLink">
+      <textarea id="modalNotes" placeholder="Notizen..."></textarea>
+
+      <button onclick="saveEdit()">💾 Speichern</button>
+      <button onclick="deleteCurrent()">🗑️ Löschen</button>
+      <button onclick="closeModal()">❌ Schließen</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
